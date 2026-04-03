@@ -1,8 +1,14 @@
-# 1ALA-TCS
-1-Axis Linear Actuator &amp; Trajectory Control System
+# 1-Axis Linear Actuator &amp; Trajectory Control System
 
-Project Overview
-This semester-long project focused on engineering an automated robotic system capable of precise ballistic targeting. The robot operates on a single-axis linear rail, utilizing image processing to identify target coordinates and inverse kinematics to calculate required launch trajectories.
+### Project Overview
 
-Movement Optimization
-To minimize the overall drive time, the control logic heavily optimizes the robot's travel path. Because the system must return to a fixed reloading station after every shot, the software dynamically sequences the targets based on their distance from the reloader. By implementing non-blocking state machines in C++, the linear positioning and reloading mechanisms operate synchronously, significantly reducing idle time during the run.
+Engineered by a 3-person team, this project features an automated targeting robot that navigates a single-axis linear rail to execute precise ballistic trajectories.
+- **Data Pipeline:** Utilizes a bi-directional communication loop. Data is collected by the Arduino kinematics engine, processed in MATLAB to extract visual target coordinates, and sent back to the Arduino for execution.
+- **Core Technologies:** MATLAB Image Processing, Arduino C, Inverse Kinematics, Serial Communication.
+
+### Movement Optimization
+
+The system was optimized for maximum speed and minimal drive time across the rail.
+
+- **Dynamic Pathing:** The software actively sorts the engagement sequence of targets based on their spatial distance from the fixed reloading station.
+-  **Synchronous Operations:** By writing non-blocking state machines in C, the system successfully runs the reloading mechanism and linear positioning simultaneously, entirely cutting out standard process delays and idle time.
